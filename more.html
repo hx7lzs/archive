@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>! ØF4 ✘ | DIRECTORY</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&family=Plus+Jakarta+Sans:wght@300;500&display=swap');
+
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+        }
+
+        /* SCROLLBAR & SELECTION */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fff; }
+        ::-webkit-scrollbar-thumb { background: #000; border: 2px solid #fff; }
+        ::selection { background: #000; color: #fff; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: crosshair;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* EFFET GRAIN */
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: 9999; opacity: 0.05;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+        }
+
+        /* HEADER MORE */
+        header {
+            width: 100%;
+            padding: 40px;
+            border-bottom: 3px solid #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .back-home {
+            font-family: 'Archivo Black', sans-serif;
+            text-decoration: none;
+            color: #000;
+            font-size: 0.8rem;
+            border: 1px solid #000;
+            padding: 5px 15px;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .directory-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 10vw, 6rem);
+            text-transform: uppercase;
+            line-height: 0.8;
+            transform: scaleY(1.3);
+            letter-spacing: -2px;
+        }
+
+        /* LISTE DE LIENS (STYLE DOSSIER TECHNIQUE) */
+        .links-container {
+            flex-grow: 1;
+            padding: 60px 40px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .link-row {
+            display: grid;
+            grid-template-columns: 150px 1fr auto;
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid #e0e0e0;
+            text-decoration: none;
+            color: #000;
+            transition: 0.2s;
+        }
+
+        .link-row:hover {
+            padding-left: 20px;
+            background: #f9f9f9;
+        }
+
+        .link-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        .link-name {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .link-value {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* MARQUEE BOTTOM */
+        .marquee-container {
+            border-top: 3px solid #000;
+            border-bottom: 3px solid #000;
+            background: #fff;
+            padding: 10px 0;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .marquee-track {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            width: fit-content;
+        }
+
+        .marquee-item {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+            padding-right: 50px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        footer {
+            padding: 40px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.6rem;
+            display: flex;
+            justify-content: space-between;
+            opacity: 0.4;
+        }
+
+        @media (max-width: 600px) {
+            .link-row { grid-template-columns: 1fr auto; gap: 10px; }
+            .link-label { grid-column: span 2; }
+            header { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <header>
+        <div class="directory-title">More</div>
+        <a href="blog.html" class="back-home">← RETOUR</a>
+    </header>
+
+    <div class="links-container">
+        
+        <div class="link-row">
+            <span class="link-label">Communication</span>
+            <span class="link-name">Discord</span>
+            <span class="link-value">hx7lzs</span>
+        </div>
+
+        <a href="https://guns.lol/hx7lzs" target="_blank" class="link-row">
+            <span class="link-label">Profile</span>
+            <span class="link-name">Guns.lol</span>
+            <span class="link-value">/hx7lzs</span>
+        </a>
+
+        <a href="https://github.com/hx7lzs" target="_blank" class="link-row">
+            <span class="link-label">Development</span>
+            <span class="link-name">Github</span>
+            <span class="link-value">@hx7lzs</span>
+        </a>
+
+        <div class="link-row">
+            <span class="link-label">Audio</span>
+            <span class="link-name">Spotify</span>
+            <span class="link-value">OF4</span>
+        </a>
+
+    </div>
+
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <div class="marquee-item">! ØF4 ✘ CONNECT — HX7LZS — DATA SOURCE — ! ØF4 ✘ CONNECT — HX7LZS — DATA SOURCE — </div>
+            <div class="marquee-item">! ØF4 ✘ CONNECT — HX7LZS — DATA SOURCE — ! ØF4 ✘ CONNECT — HX7LZS — DATA SOURCE — </div>
+        </div>
+    </div>
+
+    <footer>
+        <span>SYSTEM_VERSION_4.0</span>
+        <span>© 2026 ! ØF4 ✘</span>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>! ØF4 ✘ | ULTIMATE ARCHIVE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&family=Plus+Jakarta+Sans:wght@300;500&display=swap');
+
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --accent: #ff0000; /* Rouge vif pour le hover */
+        }
+
+        /* 1. SCROLLBAR PERSONNALISÉE */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+            border: 2px solid #fff;
+        }
+
+        /* 2. SÉLECTION DE TEXTE STYLÉE */
+        ::selection {
+            background: #000;
+            color: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: crosshair; /* Curseur croix */
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards; /* Intro fluide */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 3. EFFET DE GRAIN (NOISE OVERLAY) */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+        }
+
+        /* HEADER */
+        header {
+            width: 100%;
+            min-height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            border-bottom: 3px solid #000;
+            text-align: center;
+            position: relative;
+        }
+
+        .meta-data {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Inter', monospace;
+            font-size: 0.6rem;
+            opacity: 0.5;
+        }
+
+        .meta-data-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Inter', monospace;
+            font-size: 0.6rem;
+            opacity: 0.5;
+            text-align: right;
+        }
+
+        .blaze {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(4rem, 20vw, 13rem);
+            line-height: 0.8;
+            letter-spacing: -0.06em;
+            text-transform: uppercase;
+            transform: scaleY(1.2); /* Étirement brutaliste */
+            margin-bottom: 30px;
+            user-select: none;
+        }
+
+        /* NAVIGATION AMÉLIORÉE */
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        /* Effet de survol sur les liens */
+        .nav-links a:hover {
+            background: #000;
+            color: #fff;
+            text-decoration: line-through; /* Barré style "sold out" */
+        }
+
+        .nav-links a.troll:hover {
+            background: var(--accent); /* Rouge pour le lien piège */
+            border: 1px solid #000;
+        }
+
+        /* MARQUEE */
+        .marquee-container {
+            border-bottom: 3px solid #000;
+            background: #fff;
+            padding: 5px 0;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* GALERIE ENTIÈRE (MASONRY) */
+        .gallery-container {
+            padding: 0;
+            max-width: 100%;
+        }
+
+        .gallery {
+            column-count: 4;
+            column-gap: 0; /* Images collées les unes aux autres */
+        }
+
+        @media (max-width: 1100px) { .gallery { column-count: 3; } }
+        @media (max-width: 800px) { .gallery { column-count: 2; } }
+        @media (max-width: 500px) { .gallery { column-count: 1; } }
+
+        .item {
+            break-inside: avoid;
+            background: #000;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #fff; /* Fine ligne blanche entre les images */
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: filter 0.3s;
+        }
+
+      
+
+        /* SPOTIFY */
+        .spotify-pill {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #fff;
+            border: 2px solid #000;
+            color: #000;
+            padding: 10px 25px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 0.7rem;
+            text-decoration: none;
+            border-radius: 50px;
+            z-index: 1000;
+            transition: 0.3s;
+            box-shadow: 4px 4px 0px #000; /* Ombre dure */
+        }
+
+        .spotify-pill:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px #000;
+            background: #000;
+            color: #fff;
+        }
+
+        footer {
+            padding: 100px 20px;
+            text-align: center;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <header>
+        <div class="meta-data">
+            SYSTEM_READY<br>
+            LOC: FR
+        </div>
+        <div class="meta-data-right">
+            VOL.4<br>
+            2026©
+        </div>
+
+        <div class="blaze">! ØF4 ✘</div>
+        
+        <nav class="nav-links">
+            <a href="about.html">About</a>
+            <a href="more.html">More</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="troll">Click</a>
+        </nav>
+    </header>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            ! ØF4 ✘ ARCHIVE /// NO RULES /// RAW DATA /// VISUAL COLLECTION /// ! ØF4 ✘ ARCHIVE /// NO RULES /// RAW DATA /// VISUAL COLLECTION ///
+        </div>
+    </div>
+
+    <div class="gallery-container">
+        <div class="gallery">
+            <div class="item"><img src="1.jpg.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="2.jpg.gif" alt="Raw Img"></div>
+            <div class="item"><img src="3.jpg.jfif" alt="Raw Img"></div>
+            <div class="item"><img src="4.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="5.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="6.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="7.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="8.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="9.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="10.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="11.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="12.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="13.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="14.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="15.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="16.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="17.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="18.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="19.jpg" alt="Raw Img"></div>
+            <div class="item"><img src="20.jpg" alt="Raw Img"></div>
+        </div>
+    </div>
+
+    <a href="http://googleusercontent.com/spotify.com/6" target="_blank" class="spotify-pill">● SPOTIFY</a>
+
+    <footer>
+        <p>! ØF4 ✘ — END OF ARCHIVE</p>
+    </footer>
+
+</body>
+</html>
